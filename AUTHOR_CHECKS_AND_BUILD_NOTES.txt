@@ -1,0 +1,51 @@
+EDITORIAL REVIEW OF THE REFINERY MANUSCRIPT
+
+Scope
+The submitted title, authors, section order, analytical equations and supplied numerical-result macros are retained. Replacement and added manuscript wording is enclosed in \rev{...} and appears in red. Formatting-only changes are recorded in change_log.csv. No numerical experiments were run and no missing simulation results were invented.
+
+Source assets restored from the original GitHub archive
+numbers.tex
+fig_fill.pdf
+table_sens.tex
+table_pol.tex
+table_gcc.tex
+table_surge.tex
+
+These six files were recovered without modification from the original archive in ydeng0472/INCOM-aus at commit 7d159ae2577df1c7df6e08c2e5ae67c932ecbfbb. All values, tables and the figure are the authors' supplied synthetic results. Their availability supports a complete document build; the original simulation code and run outputs have not been rerun or independently validated. The LaTeX retains clearly labelled fallbacks only for use if an asset is later absent.
+
+Material corrections made
+1. Distinguish the EOQD response approximation from the finite-stock, buffered/rationed operational simulation. The existing responses do not establish an equilibrium of the coupled system.
+2. Participation invariance does not imply unchanged follower profits or zero follower disruption costs.
+3. rho>A is strict structural shortage; rho=A is the critical boundary. P>=D/A remains a necessary, not sufficient, condition for full nominal supply.
+4. The buffer target minimises a surrogate objective. The regime switch is a proposed heuristic, not a demonstrated optimal switch.
+5. B_cap=(P-D)/lambda is a mean potential refill volume over an up spell, not a sustainable-stock cap. At fixed D its limit as rho approaches A is D/mu, not zero. Mean supply slack AP-D is what vanishes.
+6. Posterior means and maximum-likelihood estimates are distinct. Ordinary gamma conjugacy requires transition counts and corresponding exposure times; discounted tracking is a heuristic.
+7. Restrict calibration, validation, insurance and learning claims to synthetic scenarios and tested policies.
+8. Pin Brero et al. (2024) to arXiv:2210.03852v4 and replace selected industry claims with primary-source evidence.
+
+AUTHOR CHECKS REQUIRED BEFORE SUBMISSION
+A. Define the leader's objective and solution procedure, including premium-grid evaluation, buffer selection, and ties. Confirm whether the paper claims an approximate policy framework or a full coupled Stackelberg equilibrium; the latter requires follower best responses incorporating stock and rationing.
+B. In the critical/short regime, does the target Z* represent total leader stock S or extra buffer B? S=B+max Q elsewhere permits two different implementations. Resolve from the original code and recheck all affected results.
+C. When a follower does not participate, is D total potential market demand or active-buyer demand? State the convention for capacity ratios, replenishment calculations and fill denominators.
+D. Can buffer stock reach buyers during a route closure? If not, a plant outage and route closure cannot share the same protective-stock mechanism without a location/delivery assumption. The revision flags this limitation rather than redesigning the model.
+E. Confirm cumulative statistics, exact exposure/transition observations, gamma prior shapes/rates and prior strength. If the simulator observes only daily endpoints, the continuous-time gamma likelihood is not exact. For forgetting, specify how both counts and exposure are discounted.
+F. Define each profit gap and adaptation-recovery percentage, its denominator, and the aggregation over seeds versus scenarios. Clarify evaluation years versus warm-up years and confirm that standard errors use independent seed-level paired differences. Shared seed labels alone do not guarantee common exogenous paths if policies consume random numbers differently.
+G. Supply the complete Q-learning protocol (states, actions, reward, discount factor, learning and exploration schedules, training seeds, evaluation seeds, evaluation with/without exploration and training budget). The red wording restricts claims to the tested tabular implementation.
+H. The six original source assets are now restored. numbers.tex reports 108 sensitivity cases and 6 of 12 strict-short regime/utilisation combinations, consistent with the algebraic design checks. Original simulation code and independent run outputs are still needed to validate the numerical claims. No new result values have been generated.
+I. Complete the authors' AI-use declaration according to the eventual venue rules. The supplied placeholder has been preserved rather than replaced with invented author attestations.
+J. Reapply the confirmed conference template and page limit only after selecting the submission route. The supplied A4 article class and author names were preserved; this review does not certify venue-format compliance.
+
+PRIMARY REFERENCES CHECKED
+World Bank, 7 May 2026: https://blogs.worldbank.org/en/opendata/strait-of-hormuz-disruption-sends-oil-prices-surging
+EIA, 15 July 2026: https://www.eia.gov/TodayinEnergy/detail.php?id=67865
+IEA Oil Market Report, March 2026: https://www.iea.org/reports/oil-market-report-march-2026
+KIPIC capacity publication: https://kipic.com.kw/wp-content/uploads/2024/01/26-Kipic-december-2023.pdf
+EIA Kuwait capacity: https://www.eia.gov/international/analysis/country/kwt
+EIA Hormuz 2024 oil flows: https://www.eia.gov/todayinenergy/detail.php?id=65504
+EIA weekly refinery utilisation: https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=WPULEUS3
+AFPM turnaround background: https://afpm.org/newsroom/blog/refinery-turnarounds-101-what-are-turnarounds-and-why-do-we-need-them
+Brero et al., 2024 version: https://arxiv.org/abs/2210.03852v4
+Romeijn et al., 2012 report: https://repub.eur.nl/pub/32132/EI2012-03.pdf
+
+Build
+Compile main.tex with the editor or latexmk. The manuscript now uses biblatex, the BibTeX backend and references.bib. For a manual build, run pdfLaTeX, BibTeX, pdfLaTeX and pdfLaTeX again. Shell escape is not required. The original source is retained in the original uploaded ZIP archive in this repository.
