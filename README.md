@@ -1,28 +1,25 @@
-# INCOM-aus
+# Adaptive Stackelberg Buffering for Near-Capacity Refineries under Supply Disruptions
 
-# An Adaptive Stackelberg Model for Buffering Near-Capacity Refineries against Supply Uncertainty
+Zineb Chaatit and Yang Deng · INCOM 2027 author-review draft
 
-Authors: Zineb Chaatit and Yang Deng.
+- [Current IFAC manuscript (PDF)](INCOM2027_Refinery_IFAC.pdf)
+- [Main LaTeX source](main.tex)
+- [Official IFAC author guide](https://ifac-control.org/conferences/author-guide/)
 
-## Manuscript files
-
-- `main.tex`: revised manuscript, with revised or added wording in red.
-- `references.bib`: 22 structured references, connected through `biblatex` with the BibTeX backend.
-- `numbers.tex`, `table_sens.tex`, `table_pol.tex`, `table_gcc.tex`, `table_surge.tex`, and `fig_fill.pdf`: the original authors' results assets, extracted unchanged from the uploaded source archive.
-- `AUTHOR_CHECKS_AND_BUILD_NOTES.txt`: substantive questions that still require confirmation against the model and simulation code.
-
-The original uploaded ZIP archive is retained unchanged.
+The six-page IFAC version on main supersedes the earlier article-class draft,
+which remains in Git history at commit [f282a69](https://github.com/ydeng0472/INCOM-aus/tree/f282a69826cf40b25a85793ea3f381bf9da1737b).
+The numerical inputs, tables and original fill chart are unchanged. The PDF uses
+an outlined copy of the chart to avoid Type 3 fonts. This is an author-review
+draft, not a conference submission. The AI-use declaration is left for the
+authors to complete.
 
 ## Build
 
-Open `main.tex` as the main document in a LaTeX editor. Use a TeX installation with `biblatex`, BibTeX, TikZ and the other packages listed in the preamble. Compile with:
+Run make with a TeX Live installation, latexmk, and unzip. Or extract
+the IFAC class and bibliography style from the supplied ifacconf_latex.zip,
+put them next to main.tex, and run:
 
-```sh
-latexmk -pdf main.tex
-```
+    latexmk -pdf main.tex
 
-For a manual build, run pdfLaTeX, BibTeX, pdfLaTeX and pdfLaTeX again. Shell escape is not required. Citation keys are preserved; bibliography numbering follows citation order.
-
-## Evidence and editorial status
-
-The manuscript reports synthetic scenarios. The original numbers, tables and figure are supplied source assets; this editorial update does not reproduce or independently validate the simulations. The manuscript and bibliography compile together with these assets. Remaining questions about the coupled follower response, buffer implementation, estimation and learning comparisons are recorded in the author-check notes.
+On Overleaf, use the official IFAC template package and set the main document
+to this repository's main.tex.
